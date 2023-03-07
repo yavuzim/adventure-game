@@ -3,8 +3,8 @@ package AdventureGame;
 public abstract class GameChar {
     private int id;
     private String name;
-    private int damage;
-    private int health;
+    private int damage; // hasar
+    private int health; // sağlık;
     private int money;
 
     public GameChar(int id,String name, int damage, int health, int money) {
@@ -45,13 +45,5 @@ public abstract class GameChar {
 
     public void setMoney(int money) {
         this.money = money;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 }
