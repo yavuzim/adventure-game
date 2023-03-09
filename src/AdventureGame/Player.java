@@ -16,12 +16,12 @@ public class Player {
 
     public void selectChar() {
         GameChar[] gameChars = {new Samurai(), new Knight(), new Archer()};
-        System.out.println("############################################################");
+        new Draw("#");
         System.out.println("\t\t\t** KARAKTERLER ** ");
         for (GameChar gameChar : gameChars) {
             charPrint(gameChar);
         }
-        System.out.println("############################################################");
+        new Draw("#");
         System.out.print("Karakter Seç : ");
         int selectChar = input.nextInt();
         if (selectChar > 0 && selectChar < gameChars.length + 1)
