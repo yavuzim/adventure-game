@@ -1,7 +1,7 @@
 package AdventureGame;
 
-public class Knight extends GameChar {
+public class Knight extends Characters{
     public Knight() {
-        super(2,"Şovalye",8, 24, 5);
+        super(3,"Şovalye",8,24,5);
     }
 }

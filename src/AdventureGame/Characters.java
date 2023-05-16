@@ -1,26 +1,34 @@
 package AdventureGame;
 
-public abstract class GameChar {
+public abstract class Characters {
     private int id;
-    private String name;
+    private String charName;
     private int damage; // hasar
-    private int health; // sağlık;
+    private int health; // health
     private int money;
 
-    public GameChar(int id,String name, int damage, int health, int money) {
+    public Characters(int id, String charName, int damage, int health, int money) {
         this.id = id;
-        this.name = name;
+        this.charName = charName;
         this.damage = damage;
         this.health = health;
         this.money = money;
     }
 
-    public String getName() {
-        return name;
+    public int getId() {
+        return id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getCharName() {
+        return charName;
+    }
+
+    public void setCharName(String charName) {
+        this.charName = charName;
     }
 
     public int getDamage() {
