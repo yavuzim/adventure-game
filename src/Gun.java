@@ -1,0 +1,13 @@
+public abstract class Gun {
+    private int id;
+    private String gunName;
+    private int damage;
+    private int money;
+
+    public Gun(int id, String gunName, int damage, int money) {
+        this.id = id;
+        this.gunName = gunName;
+        this.damage = damage;
+        this.money = money;
+    }
+}
