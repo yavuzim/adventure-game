@@ -1,24 +1,24 @@
-public abstract class GameCharacter {
+public abstract class Monsters {
     private int id;
     private String charName;
     private int damage; // hasar
-    private final int HEALTH;
     private int health; // sağlık
     private int money;
-    private boolean isDead;
 
-    public GameCharacter(int id, String charName, int damage,int HEALT, int health, int money,boolean isDead) {
+    public Monsters(int id, String charName, int damage, int health, int money) {
         this.id = id;
         this.charName = charName;
         this.damage = damage;
-        this.HEALTH = HEALT;
         this.health = health;
         this.money = money;
-        this.isDead = isDead;
     }
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getCharName() {
@@ -29,20 +29,12 @@ public abstract class GameCharacter {
         this.charName = charName;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public int getDamage() {
         return damage;
     }
 
     public void setDamage(int damage) {
         this.damage = damage;
-    }
-
-    public int getHEALTH() {
-        return HEALTH;
     }
 
     public int getHealth() {
@@ -59,13 +51,5 @@ public abstract class GameCharacter {
 
     public void setMoney(int money) {
         this.money = money;
-    }
-
-    public boolean isDead() {
-        return isDead;
-    }
-
-    public void setDead(boolean dead) {
-        isDead = dead;
     }
 }

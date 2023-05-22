@@ -1,8 +1,14 @@
 public class Store extends Place{
-    private String exp;
-    public Store() {
-        super(5, "Mağaza", "Mağazaya Hoşgeldin.");
-        this.exp = "Mağazan Silah ve Zırh Satın Alabilirsin.";
-        System.out.println(this.exp);
+    public Store(GameCharacter gameCharacter) {
+        super(5, "Mağaza", "Mağazan Silah ve Zırh Satın Alabilirsin.",gameCharacter);
+    }
+    @Override
+    public void gameStart(Place place, GameCharacter gameCharacter) {
+        System.out.println(place.getExplanation());
+    }
+
+    @Override
+    public void wareList() {
+
     }
 }
