@@ -1,13 +1,11 @@
-package AdventureGame;
-
-public abstract class Characters {
+public abstract class GameCharacter {
     private int id;
     private String charName;
     private int damage; // hasar
-    private int health; // health
+    private int health; // sağlık
     private int money;
 
-    public Characters(int id, String charName, int damage, int health, int money) {
+    public GameCharacter(int id, String charName, int damage, int health, int money) {
         this.id = id;
         this.charName = charName;
         this.damage = damage;
@@ -19,16 +17,16 @@ public abstract class Characters {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getCharName() {
         return charName;
     }
 
     public void setCharName(String charName) {
         this.charName = charName;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getDamage() {
