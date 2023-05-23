@@ -10,4 +10,20 @@ public abstract class Gun {
         this.damage = damage;
         this.money = money;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getGunName() {
+        return gunName;
+    }
+
+    public int getDamage() {
+        return damage;
+    }
+
+    public int getMoney() {
+        return money;
+    }
 }

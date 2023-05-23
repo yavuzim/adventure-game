@@ -10,4 +10,20 @@ public abstract class Armor {
         this.defence = defence;
         this.money = money;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getArmorName() {
+        return armorName;
+    }
+
+    public int getDefence() {
+        return defence;
+    }
+
+    public int getMoney() {
+        return money;
+    }
 }
