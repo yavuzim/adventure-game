@@ -8,11 +8,11 @@ public class Cave extends Place {
 
     public Cave(GameCharacter gameCharacter) {
         super(2, "Mağara", "Mağarada yemek ararken dikaktli ol zombiler saldırabilir. Zobileri öldürerek paralarını ve ganimetleri alabilirsin.", gameCharacter);
-        this.zombieCount = 3;
     }
 
     @Override
     public void gameStart(Place place, GameCharacter gameCharacter) {
+        this.zombieCount = 3;
         System.out.println("Dikkat!!!! Mağarada " + this.zombieCount + " Tane Zombi Var!");
         int rnd;
         System.out.println(place.getExplanation());

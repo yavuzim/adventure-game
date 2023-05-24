@@ -31,7 +31,7 @@ public class Game {
         while (!logOut.equals("q")) {
             System.out.print("Oyunu Kapatmak İçin q, karakter seçimi yapmak için e tuşuna basınız : ");
             logOut = input.nextLine();
-            if(!logOut.equals("q")){
+            if (!logOut.equals("q")) {
                 System.out.println("Lütfen Karakter Seçimi Yapınız!");
                 GameCharacter[] gameCharacters = {new Samurai(), new Archer(), new Knight()};
                 this.characterList(gameCharacters);
@@ -41,26 +41,27 @@ public class Game {
                     if (charId == gameCharacters[i].getId()) {
                         gameCharacter = gameCharacters[i];
                     }
-                System.out.println("Seçilen Karakter : \n ID : " + gameCharacter.getId() + " Adı : " + gameCharacter.getCharName() + " Hasar : " + gameCharacter.getDamage()
-                        + " Sağlık : " + gameCharacter.getHealth() + " Para : " + gameCharacter.getMoney());
+                System.out.println("Seçilen Karakter : \n ID : " + gameCharacter.getId()
+                        + " Adı : " + gameCharacter.getCharName()
+                        + " Hasar : " + gameCharacter.getDamage()
+                        + " Sağlık : " + gameCharacter.getHealth()
+                        + " Para : " + gameCharacter.getMoney());
                 System.out.println("....................................................");
                 System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
-                System.out.println("-Gideceğiniz Yeri Seçin.-");
-                Place[] places = {new SafeHouse(gameCharacter), new Cave(gameCharacter), new Woods(gameCharacter), new River(gameCharacter), new Store(gameCharacter)};
                 System.out.println("------------------------------------------------------------------");
                 System.out.println("*** OYUN BAŞLADI ***");
                 System.out.println("....................................................");
-                String output = "e";
-                while (!output.equals("q")) {
+                System.out.println("-Gideceğiniz Yeri Seçin.-");
+                Place[] places = {new SafeHouse(gameCharacter), new Cave(gameCharacter), new Woods(gameCharacter), new River(gameCharacter), new Store(gameCharacter)};
+                String placeId = "1";
+                while (!placeId.equals("q")) {
                     input.nextLine();
-                    System.out.print("Oyundan çıkmak için q devam etmek için e tuşuna basınız : ");
-                    output = input.nextLine();
-                    if (!output.equals("q")) {
-                        this.placeList(places);
-                        System.out.print("Gideceğiniz Mekanın Id Numarasını yazınız : ");
-                        int placeId = input.nextInt();
+                    this.placeList(places);
+                    System.out.print("Lütfen Mekan Seçin veya Oyunu Sonlandırın : ");
+                    placeId  = input.nextLine();
+                    if (!placeId.equals("q")) {
                         for (int i = 0; i < places.length; i++) {
-                            if (placeId == places[i].getId()) {
+                            if (Integer.valueOf(placeId) == places[i].getId()) {
                                 place = places[i];
                             }
                         }
@@ -93,5 +94,6 @@ public class Game {
             System.out.println("ID : " + place.getId()
                     + "\t\tAd : " + place.getPlaceName());
         }
+        System.out.println("-- OYUNU SONLANDIR (q)");
     }
 }
