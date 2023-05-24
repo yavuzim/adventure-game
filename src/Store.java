@@ -143,7 +143,7 @@ public class Store extends Place {
     private void selectArmor() {
         armorList();
         System.out.println();
-        System.out.println("Seçmek İstediğiniz Zırhın ID Numrası : ");
+        System.out.print("Seçmek İstediğiniz Zırhın ID Numrası : ");
         int id = input.nextInt();
         for (Armor armor : this.armors) {
             if (id == armor.getId()) {

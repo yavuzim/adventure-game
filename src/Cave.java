@@ -13,6 +13,9 @@ public class Cave extends Place {
     @Override
     public void gameStart(Place place, GameCharacter gameCharacter) {
         this.zombieCount = 3;
+        int defence = 0;
+        if (gameCharacter.getArmor() != null)
+            defence = gameCharacter.getArmor().getDefence();
         System.out.println("Dikkat!!!! Mağarada " + this.zombieCount + " Tane Zombi Var!");
         int rnd;
         System.out.println(place.getExplanation());
@@ -25,11 +28,11 @@ public class Cave extends Place {
                 if (this.zombieCount > 0)
                     rnd = random.nextInt(0, 2);
                 else rnd = 0;
-                if (rnd == 0) {
+                if (rnd == 0) { // 0 ise eşya toplayacakç
                     this.wareList();
                     int count = random.nextInt(0, foods.length);
                     System.out.println(foods[count] + " eşyası alındı!");
-                } else {
+                } else { // 1 ise zombi saldırısı olacak.
                     if (this.zombieCount > 0) {
                         Zombie zombie = new Zombie();
                         System.out.println("********************************");
@@ -44,8 +47,15 @@ public class Cave extends Place {
                             int n = random.nextInt(0, 2);
                             if (n == 0) {
                                 // zombi darbe alacak.
-                                System.out.println("Zombiye Bir Darbe Vurdunuz!");
-                                zombie.setHealth(zombie.getHealth() - gameCharacter.getDamage());
+                                if (gameCharacter.getGun() != null) {
+                                    System.out.println("Elinizde " + gameCharacter.getGun().getGunName() + " var.");
+                                    System.out.println("Zombiye Bir Darbe Vurdunuz!");
+                                    zombie.setHealth(zombie.getHealth() - gameCharacter.getGun().getDamage());
+                                } else {
+                                    System.out.println("Elinizde Silah Yok!");
+                                    System.out.println("Zombiye Bir Darbe Vurdunuz!");
+                                    zombie.setHealth(zombie.getHealth() - gameCharacter.getDamage());
+                                }
                                 System.out.println("Canınız : " + gameCharacter.getHealth() + "\tZombinin Canı : " + zombie.getHealth());
                                 if (zombie.getHealth() <= 0) {
                                     this.zombieCount--;
@@ -59,7 +69,16 @@ public class Cave extends Place {
                             } else {
                                 // biz darbe alacağız.
                                 System.out.println("Zombiden darbe yediniz!");
-                                gameCharacter.setHealth(gameCharacter.getHealth() - zombie.getDamage());
+                                if (defence > 0) {
+                                    System.out.println("Zırhınızın Sağlığı : "+gameCharacter.getArmor().getDefence());
+                                    defence--;
+                                    if (defence <= 0) {
+                                        gameCharacter.setArmor(null);
+                                        System.out.println("Zırhınız Parçalandı");
+                                    }
+                                }else{
+                                    gameCharacter.setHealth(gameCharacter.getHealth() - zombie.getDamage());
+                                }
                                 System.out.println("Canınız : " + gameCharacter.getHealth() + "\tZombinin Canı : " + zombie.getHealth());
                                 if (gameCharacter.getHealth() <= 0) {
                                     gameCharacter.setDead(false);

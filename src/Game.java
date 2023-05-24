@@ -54,8 +54,8 @@ public class Game {
                 System.out.println("-Gideceğiniz Yeri Seçin.-");
                 Place[] places = {new SafeHouse(gameCharacter), new Cave(gameCharacter), new Woods(gameCharacter), new River(gameCharacter), new Store(gameCharacter)};
                 String placeId = "1";
+                input.nextLine();
                 while (!placeId.equals("q")) {
-                    input.nextLine();
                     this.placeList(places);
                     System.out.print("Lütfen Mekan Seçin veya Oyunu Sonlandırın : ");
                     placeId  = input.nextLine();
