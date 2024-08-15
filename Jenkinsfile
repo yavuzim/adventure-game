@@ -15,6 +15,11 @@ pipeline {
                     url: 'https://github.com/yavuzim/adventure-game.git'
             }
         }
+        stage('Test Shell') {
+            steps {
+                sh 'echo "Hello, World!"'
+            }
+        }
 
         stage('Build') {
             steps {
