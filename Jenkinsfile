@@ -1,9 +1,11 @@
 pipeline {
     agent any
 
-    environment {
-        GIT_CREDENTIALS = 'e7b24fa9-75dc-4e83-99a8-1e14a4570359'
-    }
+   environment {
+    GIT_CREDENTIALS = 'e7b24fa9-75dc-4e83-99a8-1e14a4570359'
+    PATH = "/usr/bin/mvn"  // Maven'in bulunduğu dizin
+}
+
 
     stages {
         stage('Checkout') {
