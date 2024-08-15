@@ -10,32 +10,34 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-               echo "Checkout kısmı çalıştı!"
+                git branch: 'main', 
+                    credentialsId: env.GIT_CREDENTIALS, 
+                    url: 'https://github.com/yavuzim/adventure-game.git'
             }
         }
 
         stage('Build') {
             steps {
-                echo "Build kısmı çalıştı!"
+                sh 'mvn clean install'
             }
         }
 
         stage('Test') {
             steps {
-               echo "Test kısmı çalıştı!"
+                sh 'mvn test'
             }
         }
 
         stage('Deploy') {
             steps {
-                echo "Deploy kısmı çalıştı!"
+                sh "scp -r target/* ${DEPLOY_SERVER}:${DEPLOY_PATH}"  // Maven build çıktısını sunucuya kopyalar
             }
         }
     }
 
     post {
         always {
-            echo 'Pipeline tamamlandı!!!!!!!'
+            echo 'Pipeline completed!'
         }
     }
 }
