@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+    tools {
+        maven 'maven3'
+    }
     environment {
         GIT_CREDENTIALS = 'e7b24fa9-75dc-4e83-99a8-1e14a4570359'
         DEPLOY_SERVER = 'john@192.168.1.100'       // Sunucu kullanıcı adı ve IP adresi
